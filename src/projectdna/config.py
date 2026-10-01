@@ -100,7 +100,4 @@ class ScannerConfig:
             return True
         if file_suffix.lower() in self.excluded_extensions:
             return True
-        for pattern in self.custom_excludes:
-            if file_name == pattern:
-                return True
-        return False
+        return any(file_name == pattern for pattern in self.custom_excludes)
