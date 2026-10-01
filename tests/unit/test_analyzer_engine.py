@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+
 import pytest
 
 from projectdna.analyzer.context import AnalysisContext
@@ -67,8 +68,6 @@ def test_engine_raises_on_invalid_path() -> None:
 def test_context_lookups_and_safe_read(temp_repo: Path) -> None:
     """Verify context file search and reading helpers."""
     engine = AnalysisEngine()
-    result = engine.analyze(temp_repo)
-
     files, stats = engine.scanner.scan(temp_repo)
     ctx = AnalysisContext(
         project_path=temp_repo,

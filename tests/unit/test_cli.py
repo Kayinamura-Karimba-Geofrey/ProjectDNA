@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+
 import pytest
 
 from projectdna import __version__
@@ -57,3 +58,5 @@ def test_cli_analyze_invalid_path(capsys: pytest.CaptureFixture[str]) -> None:
     """Verify analyze returns error code 1 when path does not exist."""
     exit_code = main(["analyze", "/path/nonexistent/xyz/999"])
     assert exit_code == 1
+    captured = capsys.readouterr()
+    assert "Error:" in captured.out
