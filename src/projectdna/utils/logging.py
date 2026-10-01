@@ -28,8 +28,8 @@ def setup_logging(verbose: bool = False, quiet: bool = False) -> None:
         handler.setFormatter(formatter)
         root_logger.addHandler(handler)
     else:
-        for handler in root_logger.handlers:
-            handler.setLevel(level)
+        for h in root_logger.handlers:
+            h.setLevel(level)
 
 
 def get_logger(name: str) -> logging.Logger:
