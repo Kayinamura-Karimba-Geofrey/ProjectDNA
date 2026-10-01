@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import io
-from typing import TextIO
 
 from rich.console import Console
 from rich.table import Table
@@ -31,16 +30,18 @@ class TerminalReporter:
         self.console.print(banner)
         self.console.print()
 
-        # Project Section Table
+        # Section Header
+        self.console.print("[bold white]Project[/bold white]")
+        self.console.print("[dim]──────────────────────────────────────────────────────[/dim]")
+
+        # Formatted fields
         table = Table(
-            title="[bold white]Project[/bold white]",
-            title_justify="left",
             show_header=False,
             box=None,
             pad_edge=False,
-            padding=(0, 2),
+            padding=(0, 1),
         )
-        table.add_column("Field", style="bold cyan", min_width=18)
+        table.add_column("Field", style="bold cyan", min_width=17)
         table.add_column("Separator", style="dim", width=1)
         table.add_column("Value", style="white")
 
@@ -55,8 +56,6 @@ class TerminalReporter:
         table.add_row("Directories", ":", f"{proj.dir_count:,}")
         table.add_row("Total Size", ":", f"{proj.formatted_size} ({proj.total_size_bytes:,} bytes)")
 
-        # Print horizontal divider and table
-        self.console.rule("[bold cyan]Repository Overview[/bold cyan]", align="left")
         self.console.print(table)
         self.console.print()
 
