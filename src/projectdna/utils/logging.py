@@ -13,7 +13,7 @@ def setup_logging(verbose: bool = False, quiet: bool = False) -> None:
     elif verbose:
         level = logging.DEBUG
     else:
-        level = logging.INFO
+        level = logging.WARNING
 
     root_logger = logging.getLogger("projectdna")
     root_logger.setLevel(level)
