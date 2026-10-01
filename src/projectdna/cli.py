@@ -3,9 +3,9 @@
 from __future__ import annotations
 
 import argparse
+from collections.abc import Sequence
 import sys
 from pathlib import Path
-from typing import Sequence
 
 from rich.console import Console
 
@@ -165,7 +165,8 @@ def main(argv: Sequence[str] | None = None) -> int:
                 print(json_str)
         else:
             console.print(
-                f"[bold yellow]Note:[/bold yellow] Format '{args.format}' will be fully implemented in Phase 6. Falling back to terminal display."
+                f"[bold yellow]Note:[/bold yellow] Format '{args.format}' will be "
+                "fully implemented in Phase 6. Falling back to terminal display."
             )
             reporter.render(result)
 
