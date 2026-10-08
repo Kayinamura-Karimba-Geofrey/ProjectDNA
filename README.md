@@ -26,7 +26,13 @@ ProjectDNA is a repository intelligence tool that inspects local software projec
 
 ### Installation
 
-Clone the repository and install in editable mode:
+Install the latest release from TestPyPI (the extra index lets pip fetch `rich` from PyPI):
+
+```bash
+pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ projectdna
+```
+
+Or, for development, clone the repository and install in editable mode:
 
 ```bash
 git clone https://github.com/Kayinamura-Karimba-Geofrey/ProjectDNA.git

@@ -4,9 +4,10 @@ build-backend = "hatchling.build"
 
 [project]
 name = "projectdna"
-version = "0.1.0"
+dynamic = ["version"]
 description = "Repository Intelligence & Project Analysis Tool"
 readme = "README.md"
+keywords = ["repository", "analysis", "cli", "code-intelligence", "project-scanner"]
 requires-python = ">=3.11"
 license = { text = "MIT" }
 authors = [
@@ -48,9 +49,22 @@ projectdna = "projectdna.cli:main"
 Homepage = "https://github.com/Kayinamura-Karimba-Geofrey/ProjectDNA"
 Repository = "https://github.com/Kayinamura-Karimba-Geofrey/ProjectDNA.git"
 Issues = "https://github.com/Kayinamura-Karimba-Geofrey/ProjectDNA/issues"
+Changelog = "https://github.com/Kayinamura-Karimba-Geofrey/ProjectDNA/blob/main/CHANGELOG.md"
+
+[tool.hatch.version]
+path = "src/projectdna/__init__.py"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/projectdna"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/projectdna",
+    "tests",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+]
 
 [tool.ruff]
 target-version = "py311"
